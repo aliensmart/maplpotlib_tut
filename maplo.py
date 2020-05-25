@@ -1,12 +1,11 @@
 """
     matplotlib.pyplot is a python package used for 2D graphics
 """
-!git add .
-!git commit -m "Area plot with maplotlib"
-!git push origin master
+
 
 import matplotlib.pyplot as plt 
 from maplotlib import style
+import numpy as np
 
 #x = [5, 10, 2]
 #y = [19, 1, 6]
@@ -93,3 +92,13 @@ plt.title('Stack Plot')
 plt.legend()
 plt.show()
 
+#working with multiple plot
+def f(t):
+    return np.exp(-t) * np.cos(2*np.pi*t)
+t1 = np.arange(0.0, 5.0, 0.1)
+t2 = np.arange(0.0, 5.0, 0.02)
+plt.subplot(221)
+plt.plot(t1, f(t1), 'bo', t2, f(t2))
+plt.subplot(222)
+plt.plot(t2, np.cos(2*np.pi*t2))
+plt.show()
